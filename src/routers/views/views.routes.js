@@ -18,4 +18,17 @@ router.get('/', async (req, res) => {
     res.render('home', data);
 })
 
+router.get('/realtimeproducts', async (req, res) => {
+
+    const products = await manager.getProducts();
+    const data = {
+        title: "Productos agregados:",
+        products
+    }
+
+
+
+    res.render('realTimeProducts', data);
+})
+
 module.exports = router;

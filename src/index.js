@@ -29,7 +29,7 @@ const httpServer = app.listen(PORT, () => console.log('server listening on port:
 const socketServer = new Server(httpServer);
 
 //emit => emitir eventos
-//on => escuchar eventos
+//on => escuchar eventosgit 
 
 socketServer.on('connection', (socket) => {
     console.log('nuevo cliente conectado');
