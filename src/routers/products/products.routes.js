@@ -6,12 +6,16 @@ const manager = new ProductManager('./src/data/products.json');
 
 const router = Router();
 
-
+// app.get('/', (req, res) => {
+//     req.
+//     res.send('Hello World!')
+// })
 //Routes
 router.get('/', async (req, res) => {
     const products = await manager.getProducts();
     const limit = req.query.limit;
     const limitedProducts = [];
+    console.log(products[0])
 
     if(req.query.limit) {
 
@@ -61,7 +65,7 @@ router.post('/', async (req, res) => {
             error: "incomplete values"
         })
     }
-
+    
     await manager.addProduct(product);
 
     res.json({
@@ -106,7 +110,7 @@ router.delete('/:pid', async (req, res) => {
     if(productIndex < 0) {
         return res.status(404).json({
             status: "error",
-            error: "Product not found"
+            error: "product not found"
         });
     }
     res.json({

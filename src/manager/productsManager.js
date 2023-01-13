@@ -42,6 +42,12 @@ class ProductManager {
     }
 
     //cart
+    getCarts = async () => {
+        const data = await fs.readFile(this.path, 'utf8');
+        const carts = await JSON.parse(data);
+        return carts;
+    } 
+
     createCart = async (cart) => {
         const carts = await this.getProducts();
         carts.push(cart);
